@@ -6,3 +6,42 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+
+.hot-badge {
+  background: #ec1a1a;
+  font-weight: bold;
+  transform: rotate(10deg);
+  clip-path: polygon(
+    50% 0%,
+    61% 15%,
+    80% 8%,
+    85% 25%,
+    100% 35%,
+    85% 50%,
+    100% 65%,
+    85% 75%,
+    80% 92%,
+    60% 85%,
+    50% 100%,
+    40% 85%,
+    20% 92%,
+    15% 75%,
+    0% 65%,
+    15% 50%,
+    0% 35%,
+    15% 25%,
+    20% 8%,
+    38% 15%
+  );
+  animation: pulseHot 1s infinite ease-in-out;
+}
+
+@keyframes pulseHot {
+  0%,
+  100% {
+    transform: rotate(10deg) scale(1);
+  }
+  50% {
+    transform: rotate(12deg) scale(1.08);
+  }
+}

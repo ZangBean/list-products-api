@@ -69,7 +69,7 @@ export default function ProductModal({ product, onClose }) {
 
             <button
               onClick={onClose}
-              className='mt-10 w-full bg-gray-900 text-white py-4 rounded-xl hover:bg-black transition text-lg font-semibold'
+              className='mt-10 w-full bg-gray-900 cursor-pointer text-white py-4 rounded-xl hover:bg-black transition text-lg font-semibold'
             >
               Đóng
             </button>
