@@ -1,16 +1,71 @@
-# React + Vite
+# FakeStore React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Cách chạy project
 
-Currently, two official plugins are available:
+1. Clone repository về máy:
+   ```bash
+   git clone <https://github.com/ZangBean/list-products-api.git>
+   ```
+2. Cài dependencies:
+  ```bash
+    npm install
+  ```
+3. Chạy project:
+  ```bash
+    npm run dev
+  ```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Những phần đã hoàn thành
+- Hiển thị danh sách sản phẩm
+- Tìm kiếm sản phẩm
+- Hiển thị chi tiết sản phẩm
+- Giao diện & Trải nghiệm
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 3.Phần AI Usage
+- Prompt: **Style lại card product trông đẹp hơn**
+- Đoạn code AI trả về :
+  ```bash
+    <div className='relative aspect-square bg-gray-50 overflow-hidden'>
+        <img
+          src={image}
+          alt={title}
+          className='w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none' />
+        <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0'>
+          <button className='flex items-center gap-3 bg-white text-gray-800 px-4 py-2 rounded-full font-bold text-lg shadow-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 border-2 border-gray-200 cursor-pointer'>
+            <Eye className='w-6 h-6' />
+            Xem chi tiết
+          </button>
+        </div>
+      </div>
+  ```
+- Tôi đã thêm điều kiện để khi rate >= 4 thì hiện chữ HOT trên sản phẩm:
+  ```bash
+  const isHot = rate >= 4
+  -------------------------
+  <div className='relative aspect-square bg-gray-50 overflow-hidden'>
+        <img
+          src={image}
+          alt={title}
+          className='w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-110'
+        />
+  
+        // Rate >= 4
+        {isHot && (
+          <div className='hot-badge absolute top-1 right-1 text-white text-xs px-2 py-1 text-center'>
+            HOT
+          </div>
+        )}
+  
+        <div className='absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none' />
+        <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0'>
+          <button className='flex items-center gap-3 bg-white text-gray-800 px-4 py-2 rounded-full font-bold text-lg shadow-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 border-2 border-gray-200 cursor-pointer'>
+            <Eye className='w-6 h-6' />
+            Xem chi tiết
+          </button>
+        </div>
+      </div> 
+  ```
+  ---
+   
