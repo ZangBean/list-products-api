@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { fetchProducts } from './api/fetchProducts'
 import ProductGrid from './components/ProductGrid'
+import ProductModal from './components/ProductModal'
 import SearchSortBar from './components/SearchSortBar'
 import LoadingState from './components/LoadingState'
 import ErrorState from './components/ErrorState'
@@ -76,6 +77,10 @@ function App() {
           />
         )}
       </main>
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </div>
   )
 }
